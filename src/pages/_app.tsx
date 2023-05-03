@@ -1,7 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
-import type { AppType, AppProps } from "next/app";
-
+import type { AppProps, AppType } from "next/app";
 
 import { api } from "@/utils/api";
 
