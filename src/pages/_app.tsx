@@ -1,4 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from '@clerk/themes'
 import type { AppType, AppProps } from "next/app";
 
 
@@ -8,7 +9,9 @@ import "@/styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }: AppProps) => {
   return (
-    <ClerkProvider {...pageProps}>
+    <ClerkProvider {...pageProps} appearance={{
+      baseTheme: dark,
+    }}>
       <Component {...pageProps} />;
     </ClerkProvider>
   )

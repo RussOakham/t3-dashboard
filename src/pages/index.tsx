@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 
 import { api } from "@/utils/api";
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
         <h1 className="text-6xl font-bold text-white">Welcome to t3-Dashboard!</h1>
         <div className="bg-teal-300 rounded-sm text-black">
           {!isSignedIn && (<SignInButton />)}
-          {!!isSignedIn && (<div className="text-black  ">Hello, {user.firstName}</div>)}
+          {!!isSignedIn && (<><div className="text-black  ">Hello, {user.firstName}</div> <UserButton /></>)}
         </div>
 
       </main>
