@@ -6,7 +6,7 @@ import { api } from "@/utils/api";
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  console.log(hello);
+  console.log(hello.trpc.path);
 
   const { isSignedIn, user } = useUser();
 
@@ -20,9 +20,9 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
 
         <h1 className="text-6xl font-bold text-white">Welcome to t3-Dashboard!</h1>
-        <div className="bg-teal-300 rounded-sm text-black">
+        <div className="text-black bg-teal-300 rounded-sm">
           {!isSignedIn && (<SignInButton />)}
-          {!!isSignedIn && (<><div className="text-black  ">Hello, {user.firstName}</div> <UserButton /></>)}
+          {!!isSignedIn && (<><div className="text-black ">Hello, {user.firstName}</div> <UserButton /></>)}
         </div>
 
       </main>

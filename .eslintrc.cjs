@@ -35,6 +35,7 @@ const config = {
   ],
   rules: {
     "arrow-body-style": "off",
+    "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": [
       2,
@@ -51,12 +52,6 @@ const config = {
       },
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    "sort-imports": [
-      "error",
-      {
-        ignoreDeclarationSort: true,
-      },
-    ],
     "simple-import-sort/imports": [
       "error",
       {

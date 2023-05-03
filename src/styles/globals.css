@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root,
+  .app,
+  .content {
+    height: 100%;
+    width: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e0e0e0;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #888;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: #555;
+  }
+}
