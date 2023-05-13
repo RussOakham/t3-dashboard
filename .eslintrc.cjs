@@ -72,6 +72,12 @@ const config = {
       },
     ],
     "simple-import-sort/exports": "error",
+    "react/no-unknown-property": [
+      2,
+      {
+        ignore: ["jsx", "global"],
+      },
+    ],
   },
 };
 
