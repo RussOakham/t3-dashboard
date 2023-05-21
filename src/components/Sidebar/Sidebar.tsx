@@ -30,7 +30,7 @@ const Sidebar = () => {
                 <MenuItem
                     onClick={handleSidebar}
                     icon={collapsed ? <Icon as={BiMenu} /> : null}
-                    style={{ margin: "10px 0 20px 0", color: colorMode === 'dark' ? "gray.100" : "gray.900" }}
+                    style={{ margin: "15px 0 20px 0", color: colorMode === 'dark' ? "gray.100" : "gray.900" }}
                 >
                     {!collapsed && (
                         <Box

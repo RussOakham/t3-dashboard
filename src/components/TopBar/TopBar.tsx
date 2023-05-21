@@ -5,7 +5,7 @@ const TopBar = () => {
     const { colorMode, toggleColorMode } = useColorMode()
 
     return (
-        <Box display="flex" justifyContent="space-between" p={2}>
+        <Box display="flex" justifyContent="space-between" p={5}>
             <InputGroup
                 display="flex"
                 width="auto"
