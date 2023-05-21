@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react'
+import { Box } from '@chakra-ui/react'
 import { Poppins, Roboto } from "next/font/google"
 
 import MainContainer from './MainContainer'
+import Sidebar from './Sidebar'
 import TopBar from './TopBar'
 
 const robotoFont = Roboto({
@@ -34,10 +36,13 @@ const Layout = ({ children }: PropTypes) => {
                     `
                 }
             </style>
-            <TopBar />
-            <MainContainer className={`${poppinsFont.className}`}>
-                {children}
-            </MainContainer>
+            <Box display="flex">
+                <Sidebar />
+                <MainContainer className={`${poppinsFont.className}`}>
+                    <TopBar />
+                    {children}
+                </MainContainer>
+            </Box>
         </>
     )
 }

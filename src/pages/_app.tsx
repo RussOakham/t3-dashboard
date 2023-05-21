@@ -1,3 +1,4 @@
+import { ProSidebarProvider } from "react-pro-sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { AppProps, AppType } from "next/app";
 
@@ -17,9 +18,11 @@ const MyApp: AppType = ({ Component, pageProps }: AppProps<CustomPageProps>) => 
   return (
     <Chakra cookies={cookies}>
       <ClerkProvider {...pageProps} >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ProSidebarProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ProSidebarProvider>
       </ClerkProvider>
     </Chakra>
   )

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { Theme } from '@chakra-ui/react';
 import { ChakraProvider, cookieStorageManagerSSR, localStorageManager, useColorMode } from '@chakra-ui/react';
 import type { GetServerSideProps } from 'next';
 
@@ -16,7 +17,7 @@ export const Chakra = ({ cookies, children }: ChakraProps) => {
         : localStorageManager;
 
     return (
-        <ChakraProvider theme={theme[colorMode]} colorModeManager={colorModeManager} portalZIndex={1000} resetCSS>
+        <ChakraProvider theme={theme[colorMode] as Theme} colorModeManager={colorModeManager} portalZIndex={1000} resetCSS>
             {children}
         </ChakraProvider>
     );
