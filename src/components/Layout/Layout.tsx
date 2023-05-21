@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
-import { Box } from '@chakra-ui/react'
 import { Poppins, Roboto } from "next/font/google"
+import Head from "next/head";
 
 import MainContainer from '@/components/Containers/MainContainer'
 import Sidebar from '@/components/Sidebar/Sidebar'
@@ -36,15 +36,23 @@ const Layout = ({ children }: PropTypes) => {
                     `
                 }
             </style>
-            <Box display="flex">
+            <div className="flex">
+                <Head>
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1"
+
+                    />
+                    <link rel="icon" href="/favicon.ico" />
+                </Head>
                 <Sidebar />
                 <MainContainer className={`${poppinsFont.className}`}>
                     <TopBar />
-                    <div className='p-2'>
+                    <div className='p-5'>
                         {children}
                     </div>
                 </MainContainer>
-            </Box>
+            </div>
         </>
     )
 }

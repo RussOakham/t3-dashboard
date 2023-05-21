@@ -9,7 +9,7 @@ const Header = ({ title, subtitle }: HeaderProps) => {
   const { colorMode } = useColorMode()
 
   return (
-    <div className="p-5">
+    <div>
       <Heading
         as="h3"
         size="lg"
@@ -23,7 +23,7 @@ const Header = ({ title, subtitle }: HeaderProps) => {
       <Heading as="h5" size="md" color={colorMode === 'dark' ? "gray.400" : "grey.800"}>
         {subtitle}
       </Heading>
-    </div >
+    </div>
   )
 }
 
