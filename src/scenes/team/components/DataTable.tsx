@@ -8,7 +8,7 @@ import type { Person } from '../Team'
 
 type DataTableProps = {
     data: Person[];
-    columns: ColumnDef<Person>[];
+    columns: ColumnDef<Person, any>[];
 }
 
 const DataTable = ({ data, columns }: DataTableProps) => {

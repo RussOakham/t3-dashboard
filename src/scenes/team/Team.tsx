@@ -20,9 +20,6 @@ const columns = [
     columnHelper.accessor('id', {
         header: 'ID',
         cell: info => info.getValue(),
-        meta: {
-            isNumeric: true,
-        }
     }),
     columnHelper.accessor('name', {
         header: 'Name',
@@ -40,13 +37,11 @@ const columns = [
         header: 'Phone',
         cell: info => info.getValue(),
     }),
-    columnHelper.accessor('access', {
+    columnHelper.display({
         header: 'Access',
         cell: info => info.getValue(),
     }),
 ]
-
-// type TeamProps = {}
 
 const Team = () => {
     return (
