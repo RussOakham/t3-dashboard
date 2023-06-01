@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { BiLockOpenAlt } from "react-icons/bi"
 import { MdAdminPanelSettings, MdSecurity } from "react-icons/md"
 import { Icon, TableContainer } from "@chakra-ui/react"
@@ -63,10 +64,12 @@ const Team = () => {
         <>
             <Header title="TEAM" subtitle="Managing the Team Members" />
             <TableContainer>
-                <DataTable
-                    data={mockDataTeam}
-                    columns={columns}
-                />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <DataTable
+                        data={mockDataTeam}
+                        columns={columns}
+                    />
+                </Suspense>
             </TableContainer>
         </>
     )

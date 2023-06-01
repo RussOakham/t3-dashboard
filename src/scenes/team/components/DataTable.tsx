@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { BiChevronLeft, BiChevronRight, BiChevronsLeft, BiChevronsRight } from 'react-icons/bi'
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { chakra, Icon, Table, Tbody, Td, Th, Thead, Tr, useColorMode } from '@chakra-ui/react'
@@ -85,48 +85,51 @@ const DataTable = ({ data, columns }: DataTableProps) => {
                     ))}
                 </Tbody>
             </Table >
-            <tfoot
-                className={`${colorMode === "dark" ? 'bg-purple-900' : 'bg-purple-300'} flex justify-center items-center gap-2 p-2 rounded-b-3xl`}>
-                <button
-                    type='button'
-                    className="border rounded p-1"
-                    onClick={() => table.setPageIndex(0)}
-                    disabled={!table.getCanPreviousPage()}
-                >
-                    <Icon as={BiChevronsLeft} />
-                </button>
-                <button
-                    type='button'
-                    className="border rounded p-1"
-                    onClick={() => table.previousPage()}
-                    disabled={!table.getCanPreviousPage()}
-                >
-                    <Icon as={BiChevronLeft} />
-                </button>
-                <span className="flex items-center gap-1">
-                    <div>Page</div>
-                    <strong>
-                        {table.getState().pagination.pageIndex + 1} of{' '}
-                        {table.getPageCount()}
-                    </strong>
-                </span>
-                <button
-                    type='button'
-                    className="border rounded p-1"
-                    onClick={() => table.nextPage()}
-                    disabled={!table.getCanNextPage()}
-                >
-                    <Icon as={BiChevronRight} />
-                </button>
-                <button
-                    type='button'
-                    className="border rounded p-1"
-                    onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-                    disabled={!table.getCanNextPage()}
-                >
-                    <Icon as={BiChevronsRight} />
-                </button>
-            </tfoot>
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <div
+                    className={`${colorMode === "dark" ? 'bg-purple-900' : 'bg-purple-300'} flex justify-center items-center gap-2 p-2 rounded-b-3xl`}>
+                    <button
+                        type='button'
+                        className="border rounded p-1"
+                        onClick={() => table.setPageIndex(0)}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        <Icon as={BiChevronsLeft} />
+                    </button>
+                    <button
+                        type='button'
+                        className="border rounded p-1"
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        <Icon as={BiChevronLeft} />
+                    </button>
+                    <span className="flex items-center gap-1">
+                        <div>Page</div>
+                        <strong>
+                            {table.getState().pagination.pageIndex + 1} of{' '}
+                            {table.getPageCount()}
+                        </strong>
+                    </span>
+                    <button
+                        type='button'
+                        className="border rounded p-1"
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        <Icon as={BiChevronRight} />
+                    </button>
+                    <button
+                        type='button'
+                        className="border rounded p-1"
+                        onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        <Icon as={BiChevronsRight} />
+                    </button>
+                </div>
+            </Suspense>
         </>
     )
 }
