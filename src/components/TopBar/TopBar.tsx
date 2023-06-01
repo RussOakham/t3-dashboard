@@ -1,6 +1,7 @@
 import { BiBell, BiCog, BiMoon, BiSearch, BiSun, BiUser } from "react-icons/bi"
 import { Box, Icon, IconButton, Input, InputGroup, InputRightElement, useColorMode } from "@chakra-ui/react"
 
+
 const TopBar = () => {
     const { colorMode, toggleColorMode } = useColorMode()
 
