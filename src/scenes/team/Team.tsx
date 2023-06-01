@@ -47,11 +47,11 @@ const columns = [
         header: 'Access',
         cell: info => (
             <div
-                className={twClassNames(info.row.original.access === "admin" ? 'bg-green-600' : 'bg-green-700', 'text-center inherit flex justify-center rounded text-white')} >
+                className={twClassNames(info.row.original.access === "admin" ? 'bg-green-600' : 'bg-green-700', 'text-center items-center inherit flex justify-center rounded text-white')} >
                 {info.row.original.access === 'admin' ? <Icon as={MdAdminPanelSettings} /> : null}
                 {info.row.original.access === "manager" ? <Icon as={MdSecurity} /> : null}
                 {info.row.original.access === "user" ? <Icon as={BiLockOpenAlt} /> : null}
-                <span className="capitalize text-gray-100 ml-1">
+                <span className="capitalize text-gray-100 ml-1 p-2">
                     {info.row.original.access}
                 </span>
             </div>),

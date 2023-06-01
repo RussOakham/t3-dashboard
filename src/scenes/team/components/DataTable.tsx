@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BiChevronLeft, BiChevronRight, BiChevronsLeft, BiChevronsRight } from 'react-icons/bi'
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
-import { chakra, Icon, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
+import { chakra, Icon, Table, Tbody, Td, Th, Thead, Tr, useColorMode } from '@chakra-ui/react'
 import { type ColumnDef, flexRender, getCoreRowModel, getPaginationRowModel, getSortedRowModel, type SortingState, useReactTable } from '@tanstack/react-table'
 
 import type { Person } from '../Team'
@@ -14,6 +14,7 @@ type DataTableProps = {
 
 const DataTable = ({ data, columns }: DataTableProps) => {
     const [sorting, setSorting] = useState<SortingState>([])
+    const { colorMode } = useColorMode();
 
     const table = useReactTable({
         columns,
@@ -32,7 +33,7 @@ const DataTable = ({ data, columns }: DataTableProps) => {
     return (
         <>
             <Table className='mt-4 border overflow-hidden rounded-3xl' size="lg" variant="simple">
-                <Thead className='bg-purple-900'>
+                <Thead className={`${colorMode === "dark" ? 'bg-purple-900' : 'bg-purple-300'}`}>
                     {table.getHeaderGroups().map(headerGroup => (
                         <Tr key={headerGroup.id}>
                             {headerGroup.headers.map(header => {
@@ -84,7 +85,8 @@ const DataTable = ({ data, columns }: DataTableProps) => {
                     ))}
                 </Tbody>
             </Table >
-            <tfoot className='bg-purple-900 flex justify-center items-center gap-2 p-2 rounded-b-3xl'>
+            <tfoot
+                className={`${colorMode === "dark" ? 'bg-purple-900' : 'bg-purple-300'} flex justify-center items-center gap-2 p-2 rounded-b-3xl`}>
                 <button
                     type='button'
                     className="border rounded p-1"
