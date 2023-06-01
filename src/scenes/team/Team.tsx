@@ -5,7 +5,6 @@ import { createColumnHelper } from "@tanstack/react-table"
 
 import Header from "@/components/Header/Header"
 import { mockDataTeam } from "@/data/mockData"
-import twClassNames from "@/utils/tailwind"
 
 import DataTable from "./components/DataTable"
 
@@ -47,7 +46,7 @@ const columns = [
         header: 'Access',
         cell: info => (
             <div
-                className={twClassNames(info.row.original.access === "admin" ? 'bg-green-600' : 'bg-green-700', 'text-center items-center inherit flex justify-center rounded text-white')} >
+                className={`${info.row.original.access === "admin" ? 'bg-green-600' : 'bg-green-700'} text-center items-center inherit flex justify-center rounded text-white`} >
                 {info.row.original.access === 'admin' ? <Icon as={MdAdminPanelSettings} /> : null}
                 {info.row.original.access === "manager" ? <Icon as={MdSecurity} /> : null}
                 {info.row.original.access === "user" ? <Icon as={BiLockOpenAlt} /> : null}
